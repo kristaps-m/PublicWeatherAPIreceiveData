@@ -10,6 +10,6 @@ namespace PublicWeatherAPIreceiveData.DataBase
         {
         }
 
-        public DbSet<WeatherData> WeatherData { get; set; }
+        public DbSet<WeatherData> WeatherDatas { get; set; }
     }
 }

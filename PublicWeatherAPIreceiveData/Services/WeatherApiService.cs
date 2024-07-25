@@ -21,7 +21,7 @@ namespace PublicWeatherAPIreceiveData.Services
                 Headers =
             {
                 { "x-rapidapi-host", "weatherapi-com.p.rapidapi.com" },
-                { "x-rapidapi-key", "my_api_key" },
+                { "x-rapidapi-key", "your_api_key" },
             },
             };
 

@@ -23,7 +23,7 @@ namespace PublicWeatherAPIreceiveData.Services
         //        foreach (var city in cities)
         //        {
         //            var data = await _weatherApiService.GetWeatherDataAsync(city);
-        //            _context.WeatherData.Add(data);
+        //            _context.WeatherDatas.Add(data);
         //            await _context.SaveChangesAsync();
         //        }
 
@@ -34,7 +34,7 @@ namespace PublicWeatherAPIreceiveData.Services
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                var cities = new List<string> { "53.1,-0.13", "48.8566,2.3522" }; // Example coordinates
+                var cities = new List<string> { "53.1,-0.13", "48.8566,2.3522", "40.7128,-74.0060" }; // Example coordinates
                 foreach (var city in cities)
                 {
                     var data = await _weatherApiService.GetWeatherDataAsync(city);
@@ -42,7 +42,7 @@ namespace PublicWeatherAPIreceiveData.Services
                     using (var scope = _scopeFactory.CreateScope())
                     {
                         var context = scope.ServiceProvider.GetRequiredService<WeatherContext>();
-                        context.WeatherData.Add(data);
+                        context.WeatherDatas.Add(data);
                         await context.SaveChangesAsync();
                     }
                 }

@@ -19,7 +19,7 @@ namespace PublicWeatherAPIreceiveData.Controllers
         [HttpGet]
         public async Task<IEnumerable<WeatherData>> Get()
         {
-            return await _context.WeatherData.ToListAsync();
+            return await _context.WeatherDatas.ToListAsync();
         }
     }
 }
