@@ -15,7 +15,10 @@ namespace PublicWeatherAPIreceiveData.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            // Return the React app's index.html
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "react-app", "build", "index.html");
+            _logger.LogInformation($"------ Log Path: {path}");
+            return PhysicalFile(path, "text/html");
         }
 
         public IActionResult Privacy()
