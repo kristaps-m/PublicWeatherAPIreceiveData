@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace PublicWeatherAPIreceiveData.Migrations
+namespace PublicWeatherAPIreceiveData.DataBase.Migrations
 {
     public partial class Init : Migration
     {

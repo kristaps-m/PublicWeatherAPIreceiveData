@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PublicWeatherAPIreceiveData.Models;
+using PublicWeatherAPIreceiveData.Core.Models;
 using System.Diagnostics;
 
 namespace PublicWeatherAPIreceiveData.Controllers

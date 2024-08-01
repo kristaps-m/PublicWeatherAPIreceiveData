@@ -1,13 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
-using PublicWeatherAPIreceiveData.DataBase;
+using PublicWeatherAPIreceiveData.DataBase.DataBase;
 using PublicWeatherAPIreceiveData.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-//builder.Services.AddControllersWithViews();
-
+// Add services to the container
 builder.Services.AddDbContext<WeatherContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("PublicWeatherAPI")));
 builder.Services.AddControllersWithViews();
@@ -41,9 +39,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapRazorPages(); // Do I need this?
-//app.MapFallbackToFile("/react-app/build/index.html");
-// Serve the React app from wwwroot/react-app/build
+app.MapRazorPages();
+
 app.MapFallbackToFile("index.html", new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(

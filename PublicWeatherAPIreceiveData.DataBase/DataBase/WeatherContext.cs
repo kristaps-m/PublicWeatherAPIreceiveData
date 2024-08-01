@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PublicWeatherAPIreceiveData.Models;
+using PublicWeatherAPIreceiveData.Core.Models;
 
-namespace PublicWeatherAPIreceiveData.DataBase
+namespace PublicWeatherAPIreceiveData.DataBase.DataBase
 {
     public class WeatherContext : DbContext
     {

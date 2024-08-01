@@ -1,4 +1,4 @@
-namespace PublicWeatherAPIreceiveData.Models
+namespace PublicWeatherAPIreceiveData.Core.Models
 {
     public class ErrorViewModel
     {

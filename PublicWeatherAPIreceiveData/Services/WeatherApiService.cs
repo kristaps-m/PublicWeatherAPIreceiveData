@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using PublicWeatherAPIreceiveData.Models;
+using PublicWeatherAPIreceiveData.Core.Models;
 
 namespace PublicWeatherAPIreceiveData.Services
 {

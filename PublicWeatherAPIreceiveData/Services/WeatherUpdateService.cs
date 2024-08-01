@@ -1,4 +1,4 @@
-﻿using PublicWeatherAPIreceiveData.DataBase;
+﻿using PublicWeatherAPIreceiveData.DataBase.DataBase;
 
 namespace PublicWeatherAPIreceiveData.Services
 {

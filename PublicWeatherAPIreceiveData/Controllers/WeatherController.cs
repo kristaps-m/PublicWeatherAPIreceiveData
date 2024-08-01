@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PublicWeatherAPIreceiveData.DataBase;
-using PublicWeatherAPIreceiveData.Models;
+using PublicWeatherAPIreceiveData.DataBase.DataBase;
+using PublicWeatherAPIreceiveData.Core.Models;
 
 namespace PublicWeatherAPIreceiveData.Controllers
 {
