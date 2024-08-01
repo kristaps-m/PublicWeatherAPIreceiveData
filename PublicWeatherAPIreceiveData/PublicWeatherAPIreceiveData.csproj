@@ -11,12 +11,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PublicWeatherAPIreceiveData.Core\PublicWeatherAPIreceiveData.Core.csproj" />
     <ProjectReference Include="..\PublicWeatherAPIreceiveData.DataBase\PublicWeatherAPIreceiveData.DataBase.csproj" />
+    <ProjectReference Include="..\PublicWeatherAPIreceiveData.Services\PublicWeatherAPIreceiveData.Services.csproj" />
   </ItemGroup>
 
 </Project>

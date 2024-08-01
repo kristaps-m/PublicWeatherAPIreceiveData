@@ -1,13 +1,16 @@
-﻿using PublicWeatherAPIreceiveData.DataBase.DataBase;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using PublicWeatherAPIreceiveData.Core.Interfaces;
+using PublicWeatherAPIreceiveData.DataBase.DataBase;
 
-namespace PublicWeatherAPIreceiveData.Services
+namespace PublicWeatherAPIreceiveData.Services.Services
 {
     public class WeatherUpdateService : BackgroundService
     {
-        private readonly WeatherApiService _weatherApiService;
+        private readonly IWeatherApiService _weatherApiService;
         private readonly IServiceScopeFactory _scopeFactory;
 
-        public WeatherUpdateService(WeatherApiService weatherApiService, IServiceScopeFactory scopeFactory)
+        public WeatherUpdateService(IWeatherApiService weatherApiService, IServiceScopeFactory scopeFactory)
         {
             _weatherApiService = weatherApiService;
             _scopeFactory = scopeFactory;
@@ -34,5 +37,4 @@ namespace PublicWeatherAPIreceiveData.Services
             }
         }
     }
-
 }

@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
+using PublicWeatherAPIreceiveData.Core.Interfaces;
 using PublicWeatherAPIreceiveData.Core.Models;
 
-namespace PublicWeatherAPIreceiveData.Services
+namespace PublicWeatherAPIreceiveData.Services.Services
 {
-    public class WeatherApiService
+    public class WeatherApiService : IWeatherApiService
     {
         private readonly HttpClient _httpClient;
 

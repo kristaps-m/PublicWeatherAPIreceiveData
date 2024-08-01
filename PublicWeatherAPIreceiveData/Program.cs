@@ -1,17 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using PublicWeatherAPIreceiveData.Core.Interfaces;
 using PublicWeatherAPIreceiveData.DataBase.DataBase;
-using PublicWeatherAPIreceiveData.Services;
+using PublicWeatherAPIreceiveData.Services.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
-builder.Services.AddDbContext<WeatherContext>(options =>
+builder.Services.AddDbContext<IWeatherContext, WeatherContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("PublicWeatherAPI")));
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
-builder.Services.AddHttpClient<WeatherApiService>();
+builder.Services.AddHttpClient<IWeatherApiService, WeatherApiService>();
 builder.Services.AddHostedService<WeatherUpdateService>();
 
 var app = builder.Build();

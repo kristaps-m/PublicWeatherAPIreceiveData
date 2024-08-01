@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PublicWeatherAPIreceiveData.DataBase.DataBase;
+using PublicWeatherAPIreceiveData.Core.Interfaces;
 using PublicWeatherAPIreceiveData.Core.Models;
 
 namespace PublicWeatherAPIreceiveData.Controllers
@@ -9,9 +9,9 @@ namespace PublicWeatherAPIreceiveData.Controllers
     [Route("[controller]")]
     public class WeatherController : ControllerBase
     {
-        private readonly WeatherContext _context;
+        private readonly IWeatherContext _context;
 
-        public WeatherController(WeatherContext context)
+        public WeatherController(IWeatherContext context)
         {
             _context = context;
         }
