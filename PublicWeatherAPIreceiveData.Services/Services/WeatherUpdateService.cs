@@ -21,9 +21,10 @@ namespace PublicWeatherAPIreceiveData.Services.Services
             while (!stoppingToken.IsCancellationRequested)
             {
                 var cities = new List<string> { "53.1,-0.13", "48.8566,2.3522", "40.7128,-74.0060" };
+                var sameTimeForCitiesInLoop = DateTime.Now;
                 foreach (var city in cities)
                 {
-                    var data = await _weatherApiService.GetWeatherDataAsync(city);
+                    var data = await _weatherApiService.GetWeatherDataAsync(city, sameTimeForCitiesInLoop);
 
                     using (var scope = _scopeFactory.CreateScope())
                     {

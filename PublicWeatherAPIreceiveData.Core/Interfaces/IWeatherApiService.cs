@@ -4,6 +4,6 @@ namespace PublicWeatherAPIreceiveData.Core.Interfaces
 {
     public interface IWeatherApiService
     {
-        Task<WeatherData> GetWeatherDataAsync(string query);
+        Task<WeatherData> GetWeatherDataAsync(string cityCoordinatesQuery, DateTime timeForCitiesInLoop);
     }
 }

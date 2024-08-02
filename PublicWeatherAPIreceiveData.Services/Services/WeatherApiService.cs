@@ -13,12 +13,12 @@ namespace PublicWeatherAPIreceiveData.Services.Services
             _httpClient = httpClient;
         }
 
-        public async Task<WeatherData> GetWeatherDataAsync(string query)
+        public async Task<WeatherData> GetWeatherDataAsync(string cityCoordinatesQuery, DateTime timeForCitiesInLoop)
         {
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri($"https://weatherapi-com.p.rapidapi.com/current.json?q={query}"),
+                RequestUri = new Uri($"https://weatherapi-com.p.rapidapi.com/current.json?q={cityCoordinatesQuery}"),
                 Headers =
             {
                 { "x-rapidapi-host", "weatherapi-com.p.rapidapi.com" },
@@ -36,7 +36,7 @@ namespace PublicWeatherAPIreceiveData.Services.Services
                     Country = json.location.country,
                     City = json.location.name,
                     Temperature = json.current.temp_c,
-                    LastUpdateTime = DateTime.Now
+                    LastUpdateTime = timeForCitiesInLoop
                 };
             }
         }
