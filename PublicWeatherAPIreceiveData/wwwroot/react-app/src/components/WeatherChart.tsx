@@ -10,6 +10,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  TimeScale,
 } from "chart.js";
 
 ChartJS.register(
@@ -19,7 +20,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  TimeScale
 );
 
 const chartJSoptions = {
@@ -41,6 +43,7 @@ interface WeatherData {
   city: string;
   temperature: number;
   lastUpdateTime: string;
+  cityRealDataFetchingTime: string;
 }
 
 const WeatherChart = () => {
@@ -54,42 +57,32 @@ const WeatherChart = () => {
     fetchData();
   }, []);
 
-  console.log("theData", data);
-
   const groupedData = data.reduce(
     (acc: { [key: string]: WeatherData[] }, curr) => {
-      if (!acc[curr.city]) {
-        acc[curr.city] = [];
+      if (!acc[curr?.city]) {
+        acc[curr?.city] = [];
       }
-      acc[curr.city].push(curr);
+      acc[curr?.city].push(curr);
       return acc;
     },
     {}
   );
 
-  console.log("groupedData", groupedData);
-
-  const testLabel = Array.from(
-    new Set(data.map((d) => new Date(d.lastUpdateTime).toLocaleTimeString()))
-  );
-
-  console.log("testLabeel", testLabel);
-
   const chartData = {
-    labels: testLabel,
-    datasets: Object.keys(groupedData).map((city, index) => {
+    labels: Array.from(
+      new Set(data.map((d) => new Date(d.lastUpdateTime).toLocaleTimeString()))
+    ),
+    datasets: Object.keys(groupedData)?.map((city, index) => {
       const colors = ["blue", "red", "green"]; // Add more colors if needed
       return {
         label: `${groupedData[city][index]?.country}-${city}`,
-        data: groupedData[city].map((d) => d.temperature),
+        data: groupedData[city].map((d) => d?.temperature),
         fill: false,
         backgroundColor: colors[index],
         borderColor: colors[index],
       };
     }),
   };
-
-  console.log("chartData", chartData);
 
   return <Line data={chartData} options={chartJSoptions} />;
 };

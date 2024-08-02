@@ -7,5 +7,6 @@
         public string City { get; set; }
         public double Temperature { get; set; }
         public DateTime LastUpdateTime { get; set; }
+        public DateTime CityRealDataFetchingTime { get; set; }
     }
 }

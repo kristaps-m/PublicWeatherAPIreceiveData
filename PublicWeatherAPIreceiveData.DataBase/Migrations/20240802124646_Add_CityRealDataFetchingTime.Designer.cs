@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PublicWeatherAPIreceiveData.DataBase.DataBase;
 
@@ -11,9 +12,10 @@ using PublicWeatherAPIreceiveData.DataBase.DataBase;
 namespace PublicWeatherAPIreceiveData.DataBase.Migrations
 {
     [DbContext(typeof(WeatherContext))]
-    partial class WeatherContextModelSnapshot : ModelSnapshot
+    [Migration("20240802124646_Add_CityRealDataFetchingTime")]
+    partial class Add_CityRealDataFetchingTime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

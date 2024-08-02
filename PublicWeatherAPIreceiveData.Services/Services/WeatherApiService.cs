@@ -36,7 +36,8 @@ namespace PublicWeatherAPIreceiveData.Services.Services
                     Country = json.location.country,
                     City = json.location.name,
                     Temperature = json.current.temp_c,
-                    LastUpdateTime = timeForCitiesInLoop
+                    LastUpdateTime = timeForCitiesInLoop,
+                    CityRealDataFetchingTime = DateTime.Now
                 };
             }
         }
