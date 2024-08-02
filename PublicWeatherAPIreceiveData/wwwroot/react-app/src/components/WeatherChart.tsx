@@ -11,9 +11,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import "./WeatherChart.css";
 
-// Register the necessary components with Chart.js
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -24,7 +22,7 @@ ChartJS.register(
   Legend
 );
 
-const options = {
+const chartJSoptions = {
   responsive: true,
   plugins: {
     legend: {
@@ -56,20 +54,6 @@ const WeatherChart = () => {
     fetchData();
   }, []);
 
-  // const chartData = {
-  //   labels: data.map((d) => new Date(d.lastUpdateTime).toLocaleTimeString()),
-  //   datasets: [
-  //     {
-  //       label: "Temperature",
-  //       data: data.map((d) => d.temperature),
-  //       fill: false,
-  //       backgroundColor: "blue",
-  //       borderColor: "blue",
-  //     },
-  //   ],
-  // };
-
-  // Update to ultimate DataCharts;
   const groupedData = data.reduce(
     (acc: { [key: string]: WeatherData[] }, curr) => {
       if (!acc[curr.city]) {
@@ -81,7 +65,6 @@ const WeatherChart = () => {
     {}
   );
 
-  // const chartData for 3 cities!!!!
   const chartData = {
     labels: Array.from(
       new Set(data.map((d) => new Date(d.lastUpdateTime).toLocaleTimeString()))
@@ -89,20 +72,16 @@ const WeatherChart = () => {
     datasets: Object.keys(groupedData).map((city, index) => {
       const colors = ["blue", "red", "green"]; // Add more colors if needed
       return {
-        label: `${groupedData[city][index].country}-${city}`, // label: city,
+        label: `${groupedData[city][index].country}-${city}`,
         data: groupedData[city].map((d) => d.temperature),
         fill: false,
-        backgroundColor: colors[index % colors.length],
-        borderColor: colors[index % colors.length],
+        backgroundColor: colors[index],
+        borderColor: colors[index],
       };
     }),
   };
 
-  return (
-    // <div className="chart-container">
-    <Line data={chartData} options={options} />
-    // </div>
-  );
+  return <Line data={chartData} options={chartJSoptions} />;
 };
 
 export default WeatherChart;
