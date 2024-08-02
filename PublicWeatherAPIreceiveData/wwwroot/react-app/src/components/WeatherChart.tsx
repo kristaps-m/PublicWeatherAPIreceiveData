@@ -37,7 +37,7 @@ const chartJSoptions = {
   },
 };
 
-interface WeatherData {
+interface IWeatherData {
   id: number;
   country: string;
   city: string;
@@ -47,7 +47,7 @@ interface WeatherData {
 }
 
 const WeatherChart = () => {
-  const [data, setData] = useState<WeatherData[]>([]);
+  const [data, setData] = useState<IWeatherData[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,7 +58,7 @@ const WeatherChart = () => {
   }, []);
 
   const groupedData = data.reduce(
-    (acc: { [key: string]: WeatherData[] }, curr) => {
+    (acc: { [key: string]: IWeatherData[] }, curr) => {
       if (!acc[curr?.city]) {
         acc[curr?.city] = [];
       }

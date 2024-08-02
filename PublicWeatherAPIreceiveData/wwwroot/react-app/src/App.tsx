@@ -1,4 +1,5 @@
 import "./App.css";
+import MinMaxTemperature from "./components/MinMaxTemperature";
 import WeatherChart from "./components/WeatherChart";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Weather Data</h1>
+        <MinMaxTemperature />
         <WeatherChart />
       </header>
     </div>

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using PublicWeatherAPIreceiveData.Core.Interfaces;
 using PublicWeatherAPIreceiveData.Core.Models;
 
@@ -40,6 +41,20 @@ namespace PublicWeatherAPIreceiveData.Services.Services
                     CityRealDataFetchingTime = DateTime.Now
                 };
             }
+        }
+
+        public List<MinMax> GetMinMaxTemperaturesAsync(List<WeatherData> weatherDataList)
+        {
+            var result = weatherDataList.GroupBy(w => new { w.Country, w.City })
+                .Select(g => new MinMax
+                {
+                    Country = g.Key.Country,
+                    City = g.Key.City,
+                    Min = g.Min(w => w.Temperature),
+                    Max = g.Max(w => w.Temperature)
+                }).ToList();
+
+            return result;
         }
     }
 }
