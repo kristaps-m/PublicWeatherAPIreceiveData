@@ -38,7 +38,7 @@ Before you start:
 Microsoft SQL Server Management Studio (OPTIONAL)<br>
 https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16
 
-Visualstudio <br>
+Visualstudio (with the ASP.NET and web development workload) <br>
 https://visualstudio.microsoft.com/vs/
 
 SQL Server <br>
